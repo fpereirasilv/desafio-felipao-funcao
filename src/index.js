@@ -1,23 +1,35 @@
 let nomeHeroi = 'Flávio';
-let xpHeroi = 300;
-let classeHeroi = '';
+let saldoVitorias = 0;
+let nivelHeroi = '';
 
-if(xpHeroi <= 1000 ){
-    classeHeroi = 'Ferro';
-} else if(xpHeroi >= 1001 && xpHeroi < 2000 ){
-    classeHeroi = 'Bronze';
-} else if(xpHeroi >= 2001 && xpHeroi < 5000 ){
-    classeHeroi = 'Prata';
-} else if(xpHeroi >= 5001 && xpHeroi < 7000 ){
-    classeHeroi = 'Ouro';
-} else if(xpHeroi >= 7001 && xpHeroi < 8000 ){
-    classeHeroi = 'Platina';
-} else if(xpHeroi >= 8001 && xpHeroi < 9000 ){
-    classeHeroi = 'Ascendente';
-} else if(xpHeroi >= 9001 && xpHeroi < 10000 ){
-    classeHeroi = 'Imortal'; 
-} else if(xpHeroi >= 10001){
-    classeHeroi = 'Radiante';
+function saldoRankeadas(nVitorias, nDerrotas){
+    return nVitorias - nDerrotas;
+} 
+
+saldoVitorias = saldoRankeadas(55, 37);
+
+function calculaRanke(ranke){
+    if(ranke < 10) {
+        return 'Ferro';
+    } else if(ranke > 11 && ranke < 20){
+        return 'Bronze';
+    } else if(ranke > 21 && ranke < 50){
+        return 'Prata';
+    } else if(ranke > 51 && ranke < 80){
+        return 'Ouro';
+    } else if(ranke > 81 && ranke < 90){
+        return 'Diamante';
+    } else if(ranke > 91 && ranke < 100){
+        return 'Lendário';
+    } else if(ranke >= 101){
+        return 'Imortal'
+    }
 }
 
-console.log(`O Herói de nome **${nomeHeroi}** está no nível de **${classeHeroi}**`)
+nivelHeroi = calculaRanke(saldoVitorias)
+
+function main(saldo, nivel){
+    console.log(`O Herói tem de saldo de **${saldo}** está no nível de **${nivel}**`)
+}
+
+main(saldoVitorias, nivelHeroi);
