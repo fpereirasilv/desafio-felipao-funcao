@@ -1,12 +1,16 @@
-let nomeHeroi = 'Flávio';
+const prompt = require('prompt-sync')({sigint: true});
+
 let saldoVitorias = 0;
 let nivelHeroi = '';
+
+const pontosVitoria = prompt('Por favor digite o número de vitórias: ');
+const pontosDerrota = prompt('Por favor digite o número de derrotas: ');
 
 function saldoRankeadas(nVitorias, nDerrotas){
     return nVitorias - nDerrotas;
 } 
 
-saldoVitorias = saldoRankeadas(55, 37);
+saldoVitorias = saldoRankeadas(pontosVitoria, pontosDerrota);
 
 function calculaRanke(ranke){
     if(ranke < 10) {
